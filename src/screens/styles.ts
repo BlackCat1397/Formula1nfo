@@ -20,22 +20,35 @@ export const styles = StyleSheet.create({
   headerCell: {
     flex: 1,
     fontWeight: 'bold',
-    fontSize: 14,
+    fontSize: 12,
   },
   row: {
     flex: 1,
     flexDirection: 'row',
     padding: 10,
-    height: 40,
+    minHeight: 40,
     borderBottomWidth: 1,
     borderBottomColor: '#ddd',
   },
   cell: {
     flex: 1,
-    fontSize: 14,
+    fontSize: 13,
+    paddingHorizontal: 1,
   },
   nameCell: {
     flex: 2,
+  },
+  seasonCell: {
+    flex: 1,
+  },
+  raceNameCell: {
+    flex: 2,
+  },
+  circuitCell: {
+    flex: 3,
+  },
+  resultCell: {
+    flex: 1,
   },
   loader: {
     flex: 1,

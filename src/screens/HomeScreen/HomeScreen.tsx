@@ -13,7 +13,7 @@ import { useHeaderHeight } from '@react-navigation/elements';
 
 import { useDrivers } from '../../hooks/useDrivers';
 
-import { styles } from './styles';
+import { styles } from '../styles';
 
 
 type HomeScreenProps = {
@@ -26,7 +26,7 @@ export default function HomeScreen({ navigation }: HomeScreenProps) {
   const headerHeight = useHeaderHeight();
   const { height } = useWindowDimensions();
   const listHeight = height - headerHeight - styles.headerRow.height - styles.pagination.height;
-  const rowsPerPage = listHeight / styles.row.height;
+  const rowsPerPage = listHeight / styles.row.minHeight;
 
   const { drivers, isLoading, isError, totalDrivers, retry } = useDrivers(page, rowsPerPage);
 
