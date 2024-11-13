@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     padding: 10,
-    minHeight: 40,
+    minHeight: 36,
     borderBottomWidth: 1,
     borderBottomColor: '#ddd',
   },

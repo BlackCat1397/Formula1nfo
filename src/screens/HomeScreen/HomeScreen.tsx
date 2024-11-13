@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   ActivityIndicator,
   useWindowDimensions,
+  Linking,
 } from 'react-native';
 
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -60,7 +61,12 @@ export default function HomeScreen({ navigation }: HomeScreenProps) {
               onPress={() => navigation.navigate('DriverDetails', { driver })}
               style={styles.row}
             >
-              <Text style={[styles.cell, styles.nameCell]}>{driver.permanentNumber ? `${driver.permanentNumber}. ` : ''}{driver.givenName} {driver.familyName}</Text>
+              <TouchableOpacity
+                style={[styles.cell, styles.nameCell]}
+                onPress={() => driver.url && Linking.openURL(driver.url)}
+              >
+                <Text style={[styles.cell, styles.nameCell]}>{driver.permanentNumber ? `${driver.permanentNumber}. ` : ''}{driver.givenName} {driver.familyName}</Text>
+              </TouchableOpacity>
               <Text style={styles.cell}>{driver.nationality}</Text>
               <Text style={styles.cell}>{driver.dateOfBirth}</Text>
             </TouchableOpacity>
