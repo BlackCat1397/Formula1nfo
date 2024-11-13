@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { HomeScreen } from './src/screens/HomeScreen';
 import { DriverDetailsScreen } from './src/screens/DriverDetailsScreen';
+import { Colors } from './src/constants/colors';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -15,9 +16,9 @@ function App(): React.JSX.Element {
         initialRouteName="Home"
         screenOptions={{
           headerStyle: {
-            backgroundColor: '#FF1E00',
+            backgroundColor: Colors.warmRed,
           },
-          headerTintColor: '#fff',
+          headerTintColor: Colors.white,
           headerTitleStyle: {
             fontWeight: 'bold',
             fontFamily: 'Formula1',

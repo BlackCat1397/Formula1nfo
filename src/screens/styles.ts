@@ -1,26 +1,27 @@
 import { StyleSheet } from 'react-native';
+import { Colors } from '../constants/colors';
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'space-between',
-    backgroundColor: '#fff',
+    backgroundColor: Colors.white,
   },
   table: {
     flex: 1,
   },
   headerRow: {
-    height: 36,
+    height: 34,
     flexDirection: 'row',
     padding: 10,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: Colors.darkBackground,
     borderBottomWidth: 1,
-    borderBottomColor: '#ddd',
+    borderBottomColor: Colors.borderGray,
   },
   headerCell: {
     flex: 1,
     fontFamily: 'Formula1',
-    color: '#15151E',
+    color: Colors.carbonBlack,
     fontWeight: 'bold',
     fontSize: 12,
   },
@@ -30,11 +31,11 @@ export const styles = StyleSheet.create({
     padding: 10,
     minHeight: 36,
     borderBottomWidth: 1,
-    borderBottomColor: '#ddd',
+    borderBottomColor: Colors.borderGray,
   },
   cell: {
     fontFamily: 'Formula1',
-    color: '#15151E',
+    color: Colors.carbonBlack,
     flex: 1,
     fontSize: 13,
     paddingHorizontal: 1,
@@ -65,7 +66,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   errorText: {
-    color: '#15151E',
+    color: Colors.carbonBlack,
     fontFamily: 'Formula1',
     fontSize: 14,
     fontWeight: 'bold',
@@ -90,27 +91,24 @@ export const styles = StyleSheet.create({
     padding: 10,
     marginHorizontal: 5,
     borderWidth: 1,
-    borderColor: '#ddd',
+    borderColor: Colors.borderGray,
     borderRadius: 5,
   },
   buttonPressed: {
-    backgroundColor: '#ddd',
+    backgroundColor: Colors.borderGray,
   },
   buttonDisabled: {
     opacity: 0.5,
   },
   buttonText: {
-    color: '#15151E',
+    color: Colors.carbonBlack,
     fontFamily: 'Formula1',
     fontSize: 14,
   },
   pageInfo: {
-    color: '#15151E',
+    color: Colors.carbonBlack,
     fontFamily: 'Formula1',
     fontSize: 14,
     marginHorizontal: 10,
-  },
-  rowPressed: {
-    backgroundColor: '#f0f0f0',
   },
 });
