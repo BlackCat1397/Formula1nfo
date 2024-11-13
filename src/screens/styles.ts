@@ -40,6 +40,8 @@ export const styles = StyleSheet.create({
   },
   seasonCell: {
     flex: 1,
+    fontSize: 11,
+    paddingTop: 1,
   },
   raceNameCell: {
     flex: 2,

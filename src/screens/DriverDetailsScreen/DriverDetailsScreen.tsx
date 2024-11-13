@@ -28,10 +28,10 @@ export default function DriverDetailsScreen({
     <View style={styles.container}>
       <View style={styles.table}>
         {!isError && <View style={styles.headerRow}>
-          <Text style={styles.headerCell}>Season</Text>
-          <Text style={styles.headerCell}>Race Name</Text>
-          <Text style={styles.headerCell}>Circuit</Text>
-          <Text style={styles.headerCell}>Result</Text>
+          <Text style={[styles.headerCell, styles.seasonCell]}>Season</Text>
+          <Text style={[styles.headerCell, styles.raceNameCell]}>Race Name</Text>
+          <Text style={[styles.headerCell, styles.circuitCell]}>Circuit</Text>
+          <Text style={[styles.headerCell, styles.resultCell]}>Result</Text>
         </View>}
 
         { isLoading ? (
