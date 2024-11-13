@@ -19,6 +19,8 @@ export const styles = StyleSheet.create({
   },
   headerCell: {
     flex: 1,
+    fontFamily: 'Formula1',
+    color: '#15151E',
     fontWeight: 'bold',
     fontSize: 12,
   },
@@ -31,6 +33,8 @@ export const styles = StyleSheet.create({
     borderBottomColor: '#ddd',
   },
   cell: {
+    fontFamily: 'Formula1',
+    color: '#15151E',
     flex: 1,
     fontSize: 13,
     paddingHorizontal: 1,
@@ -38,7 +42,7 @@ export const styles = StyleSheet.create({
   nameCell: {
     flex: 2,
   },
-  seasonCell: {
+  seasonHeaderCell: {
     flex: 1,
     fontSize: 11,
     paddingTop: 1,
@@ -61,6 +65,8 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   errorText: {
+    color: '#15151E',
+    fontFamily: 'Formula1',
     fontSize: 14,
     fontWeight: 'bold',
     marginBottom: 10,
@@ -94,9 +100,13 @@ export const styles = StyleSheet.create({
     opacity: 0.5,
   },
   buttonText: {
+    color: '#15151E',
+    fontFamily: 'Formula1',
     fontSize: 14,
   },
   pageInfo: {
+    color: '#15151E',
+    fontFamily: 'Formula1',
     fontSize: 14,
     marginHorizontal: 10,
   },

@@ -28,7 +28,7 @@ export default function DriverDetailsScreen({
     <View style={styles.container}>
       <View style={styles.table}>
         {!isError && <View style={styles.headerRow}>
-          <Text style={[styles.headerCell, styles.seasonCell]}>Season</Text>
+          <Text style={[styles.headerCell, styles.seasonHeaderCell]}>Season</Text>
           <Text style={[styles.headerCell, styles.raceNameCell]}>Race Name</Text>
           <Text style={[styles.headerCell, styles.circuitCell]}>Circuit</Text>
           <Text style={[styles.headerCell, styles.resultCell]}>Result</Text>
@@ -50,7 +50,7 @@ export default function DriverDetailsScreen({
                 key={`${race.date}${race.raceName}${race.round}`}
                 style={styles.row}
               >
-                <Text style={[styles.cell, styles.seasonCell]}>{race.season}</Text>
+                <Text style={styles.cell}>{race.season}</Text>
                 <Text style={[styles.cell, styles.raceNameCell]}>{race.raceName} Round {race.round}</Text>
 
                 <Text adjustsFontSizeToFit style={[styles.cell, styles.circuitCell]}>{race.Circuit.Location.country} - {race.Circuit.Location.locality} - {race.Circuit.circuitName}</Text>

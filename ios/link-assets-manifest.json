@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Formula1-Bold.ttf",
+      "sha1": "865be3d85b2bc3bb112fb45026f21083f2a3d056"
+    },
+    {
+      "path": "assets/fonts/Formula1-Regular.ttf",
+      "sha1": "a707db2a04dd2ce0cdaf9793a25fe9b6a73def51"
+    }
+  ]
+}

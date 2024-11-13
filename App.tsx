@@ -13,6 +13,16 @@ function App(): React.JSX.Element {
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName="Home"
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: '#FF1E00',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontFamily: 'Formula1',
+          },
+        }}
       >
         <Stack.Screen
           name="Home"
@@ -22,7 +32,13 @@ function App(): React.JSX.Element {
         <Stack.Screen
           name="DriverDetails"
           component={DriverDetailsScreen}
-          options={({ route }) => ({ title: `${route.params.driver.givenName} ${route.params.driver.familyName}` })}
+          options={({ route }) => ({
+            title: `${route.params.driver.givenName} ${route.params.driver.familyName}`,
+            headerBackTitleStyle: {
+              fontFamily: 'Formula1',
+              fontSize: 13,
+            },
+          })}
         />
       </Stack.Navigator>
     </NavigationContainer>
