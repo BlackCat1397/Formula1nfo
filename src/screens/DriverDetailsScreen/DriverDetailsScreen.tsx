@@ -1,20 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, ActivityIndicator, TouchableOpacity, ScrollView } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
+import { useRaces } from '../../hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { decrementRacesPage, incrementRacesPage, resetRacesPage } from '../../redux/actions';
+
+import { Pagination } from '../../components';
 
 import { styles } from '../styles';
-import { useRaces } from '../../hooks';
-import { Pagination } from '../../components';
 
 type DriverDetailsScreenProps = NativeStackScreenProps<RootStackParamList, 'DriverDetails'>;
 
 export default function DriverDetailsScreen({
   route,
 }: DriverDetailsScreenProps) {
-  const driver = route.params.driver;
+  const page = useAppSelector((state) => state.racesPage.value);
+  const dispatch = useAppDispatch();
 
-  const [page, setPage] = useState(0);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => () => { dispatch(resetRacesPage()); }, []);
+
+  const driver = route.params.driver;
 
   const rowsPerPage = 10;
 
@@ -66,8 +73,8 @@ export default function DriverDetailsScreen({
         page={page}
         totalPages={totalPages}
         isDisabled={isLoading}
-        onPrevPagePress={() => setPage(p => p + 1)}
-        onNextPagePress={() => setPage(p => p - 1)}
+        onPrevPagePress={() => dispatch(decrementRacesPage())}
+        onNextPagePress={() => dispatch(incrementRacesPage())}
       />
     </View>
   );

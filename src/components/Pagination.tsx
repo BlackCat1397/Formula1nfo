@@ -22,7 +22,7 @@ export const Pagination = ({
   return (
     <View style={styles.pagination}>
       <TouchableOpacity
-        onPress={onNextPagePress}
+        onPress={onPrevPagePress}
         disabled={isPrevPageDisabled}
         style={[
           styles.button,
@@ -37,7 +37,7 @@ export const Pagination = ({
       </Text>
 
       <TouchableOpacity
-        onPress={onPrevPagePress}
+        onPress={onNextPagePress}
         disabled={isNextPageDisabled}
         style={[
           styles.button,

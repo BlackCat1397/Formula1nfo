@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   View,
   Text,
@@ -13,6 +13,8 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useHeaderHeight } from '@react-navigation/elements';
 
 import { useDrivers } from '../../hooks/useDrivers';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { decrementDriversPage, incrementDriversPage } from '../../redux/actions';
 
 import { Pagination } from '../../components';
 
@@ -24,7 +26,8 @@ type HomeScreenProps = {
 };
 
 export default function HomeScreen({ navigation }: HomeScreenProps) {
-  const [page, setPage] = useState(0);
+  const page = useAppSelector((state) => state.driversPage.value);
+  const dispatch = useAppDispatch();
 
   const headerHeight = useHeaderHeight();
   const { height } = useWindowDimensions();
@@ -77,8 +80,8 @@ export default function HomeScreen({ navigation }: HomeScreenProps) {
         page={page}
         totalPages={totalPages}
         isDisabled={isLoading}
-        onPrevPagePress={() => setPage(p => p + 1)}
-        onNextPagePress={() => setPage(p => p - 1)}
+        onPrevPagePress={() => dispatch(decrementDriversPage())}
+        onNextPagePress={() => dispatch(incrementDriversPage())}
       />
     </View>
   );
