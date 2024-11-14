@@ -5,6 +5,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { styles } from '../styles';
 import { useRaces } from '../../hooks';
+import { Pagination } from '../../components';
 
 type DriverDetailsScreenProps = NativeStackScreenProps<RootStackParamList, 'DriverDetails'>;
 
@@ -20,9 +21,6 @@ export default function DriverDetailsScreen({
   const { races, isLoading, isError, total, retry } = useRaces(driver.driverId, page, rowsPerPage);
 
   const totalPages = Math.ceil(total / rowsPerPage);
-
-  const isPrevPageDisabled = page === 0 || isLoading;
-  const isNextPageDisabled = page >= totalPages - 1 || isLoading;
 
   return (
     <View style={styles.container}>
@@ -64,33 +62,13 @@ export default function DriverDetailsScreen({
         )}
       </View>
 
-      <View style={styles.pagination}>
-        <TouchableOpacity
-          onPress={() => setPage(p => p - 1)}
-          disabled={isPrevPageDisabled}
-          style={[
-            styles.button,
-            isPrevPageDisabled && styles.buttonDisabled,
-          ]}
-        >
-          <Text style={styles.buttonText}>Previous</Text>
-        </TouchableOpacity>
-
-        <Text style={styles.pageInfo}>
-          Page {page + 1} of {totalPages}
-        </Text>
-
-        <TouchableOpacity
-          onPress={() => setPage(p => p + 1)}
-          disabled={isNextPageDisabled}
-          style={[
-            styles.button,
-            isNextPageDisabled && styles.buttonDisabled,
-          ]}
-        >
-          <Text style={styles.buttonText}>Next</Text>
-        </TouchableOpacity>
-      </View>
+      <Pagination
+        page={page}
+        totalPages={totalPages}
+        isDisabled={isLoading}
+        onPrevPagePress={() => setPage(p => p + 1)}
+        onNextPagePress={() => setPage(p => p - 1)}
+      />
     </View>
   );
 }

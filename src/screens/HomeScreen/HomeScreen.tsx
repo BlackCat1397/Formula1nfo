@@ -14,6 +14,8 @@ import { useHeaderHeight } from '@react-navigation/elements';
 
 import { useDrivers } from '../../hooks/useDrivers';
 
+import { Pagination } from '../../components';
+
 import { styles } from '../styles';
 
 
@@ -32,9 +34,6 @@ export default function HomeScreen({ navigation }: HomeScreenProps) {
   const { drivers, isLoading, isError, totalDrivers, retry } = useDrivers(page, rowsPerPage);
 
   const totalPages = Math.ceil(totalDrivers / rowsPerPage);
-
-  const isPrevPageDisabled = page === 0 || isLoading;
-  const isNextPageDisabled = page >= totalPages - 1 || isLoading;
 
   return (
     <View style={styles.container}>
@@ -74,33 +73,13 @@ export default function HomeScreen({ navigation }: HomeScreenProps) {
         )}
       </View>
 
-      <View style={styles.pagination}>
-        <TouchableOpacity
-          onPress={() => setPage(p => p - 1)}
-          disabled={isPrevPageDisabled}
-          style={[
-            styles.button,
-            isPrevPageDisabled && styles.buttonDisabled,
-          ]}
-        >
-          <Text style={styles.buttonText}>Previous</Text>
-        </TouchableOpacity>
-
-        <Text style={styles.pageInfo}>
-          Page {page + 1} of {totalPages}
-        </Text>
-
-        <TouchableOpacity
-          onPress={() => setPage(p => p + 1)}
-          disabled={isNextPageDisabled}
-          style={[
-            styles.button,
-            isNextPageDisabled && styles.buttonDisabled,
-          ]}
-        >
-          <Text style={styles.buttonText}>Next</Text>
-        </TouchableOpacity>
-      </View>
+      <Pagination
+        page={page}
+        totalPages={totalPages}
+        isDisabled={isLoading}
+        onPrevPagePress={() => setPage(p => p + 1)}
+        onNextPagePress={() => setPage(p => p - 1)}
+      />
     </View>
   );
 }
