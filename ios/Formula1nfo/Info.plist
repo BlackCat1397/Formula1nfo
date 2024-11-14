@@ -49,8 +49,8 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Formula1-Bold.ttf</string>
-		<string>Formula1-Regular.ttf</string>
+		<string>Formula1_bold.ttf</string>
+		<string>Formula1.ttf</string>
 	</array>
 </dict>
 </plist>
